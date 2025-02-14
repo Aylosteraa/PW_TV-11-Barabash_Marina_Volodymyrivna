@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор мазуту</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; }
+        label, input, button { display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор мазуту</h1>
+    <form method="post">
+        <label>Вуглець (%): <input type="number" step="any" name="carbon" required></label>
+        <label>Водень (%): <input type="number" step="any" name="hydrogen" required></label>
+        <label>Оксиген (%): <input type="number" step="any" name="oxygen" required></label>
+        <label>Сірка (%): <input type="number" step="any" name="sulfur" required></label>
+        <label>Нижча теплота згоряння горючої маси мазуту (МДж/кг): <input type="number" step="any" name="oilHeat" required></label>
+        <label>Вміст вологи в паливі (%): <input type="number" step="any" name="fuelMoisture" required></label>
+        <label>Вміст золи в паливі (%): <input type="number" step="any" name="ash" required></label>
+        <label>Ванадій (мг/кг): <input type="number" step="any" name="vanadium" required></label>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    {{ if .Calculated }}
+    <h2>Результати:</h2>
+    <p>Склад робочої маси мазуту:</p>
+    <ul>
+        <li>Водень: {{ .HydrogenWM }}%</li>
+        <li>Вуглець: {{ .CarbonWM }}%</li>
+        <li>Оксиген: {{ .OxygenWM }}%</li>
+        <li>Сірка: {{ .SulfurWM }}%</li>
+        <li>Вміст золи в паливі: {{ .AshWM }}%</li>
+        <li>Ванадій: {{ .VanadiumWM }} мг/кг</li>
+    </ul>
+    <p><b>Нижча теплота згоряння:</b> {{ .LowerHeatResult }} МДж/кг</p>
+    {{ end }}
+</body>
+</html>
