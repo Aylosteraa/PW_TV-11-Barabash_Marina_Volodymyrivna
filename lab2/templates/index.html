@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор викидів палива</title>
+</head>
+<body>
+    <h1>Калькулятор викидів палива</h1>
+    <form method="post">
+        <label>Вугілля (BCoal): <input type="text" name="coal"></label><br>
+        <label>Мазут (BMasut): <input type="text" name="masut"></label><br>
+        <label>Газ (BGas): <input type="text" name="gas"></label><br>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    {{if .KCoal}}
+    <h3>Результати:</h2>
+    <p>Вугілля: {{.KCoal}}, {{.ECoal}}</p>
+    <p>Мазут: {{.KMasut}}, {{.EMasut}}</p>
+    <p>Газ: {{.KGas}}, {{.EGas}}</p>
+    {{end}}
+</body>
+</html>

@@ -28,11 +28,6 @@ type Calculation struct {
 	Calculated      bool
 }
 
-// func calculator2() {
-// 	http.HandleFunc("/", CalculatorHandler2)
-// 	http.ListenAndServe(":8080", nil)
-// }
-
 // Головна сторінка
 func CalculatorHandler2(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("templates/calculator2.html")
