@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h1>Калькулятор розрахунку прибутку
+        від сонячних електростанцій з встановленою системою
+        прогнозування сонячної потужності</h1>
+    <form method="post">
+        <label>Середньодобова потужність: <input type="text" name="power"></label><br>
+        <label>Початкове середньоквадратичне відхилення: <input type="text" name="sigma1"></label><br>
+        <label>Середньоквадратичне відхилення після вдосконалення: <input type="text" name="sigma2"></label><br>
+        <label>Вартість електроенергії: <input type="text" name="cost"></label><br>
+        <button type="submit"  style = "margin-top: 20px;">Розрахувати</button>
+    </form>
+
+    {{if .Profit1}}
+    <h2>Результати:</h2>
+    <p style="font-weight: bold;">Початкове середньоквадратичне відхилення</p>
+    <p>Прибуток: {{.Profit1}}</p>
+    <p>Штраф: {{.Penalty1}}</p>
+    <p style="text-decoration: underline;">{{.Loss1}}</p>
+
+    <p style="font-weight: bold;">Середньоквадратичне відхилення після вдосконалення</p>
+    <p>Прибуток: {{.Profit2}}</p>
+    <p>Штраф: {{.Penalty2}}</p>
+    <p style="text-decoration: underline;">{{.Loss2}}</p>
+    {{end}}
+</body>
+</html>
