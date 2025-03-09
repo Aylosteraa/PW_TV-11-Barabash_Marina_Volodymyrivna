@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; }
+        label, input, button { display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <form method="post">
+        <label>Kzu: <input type="number" name="Kzu" step="any"></label><br>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    <div>
+        {{ if .Calculated }}
+        <h2><b>Результати:</b></h2>
+        <p>Струм трифазного КЗ: {{ .Kz1 }}</p>
+       {{ end }}
+    </div>
+    <div>
+        <a href="/">Назад</a>
+    </div>
+</body>
+</html>

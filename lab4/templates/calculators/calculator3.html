@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; }
+        label, input, button { display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <form method="post">
+        <label>Rh: <input type="number" name="Rh" step="any"></label><br>
+        <label>Xh: <input type="number" name="Xh" step="any"></label><br>
+        <label>Rm: <input type="number" name="Rm" step="any"></label><br>
+        <label>Xm: <input type="number" name="Xm" step="any"></label><br>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    <div>
+        {{ if .Calculated }}
+        <h2><b>Результати:</b></h2>
+        <p><b>Струм трифазного КЗ</b></p>
+        <p>Нормальний режим: {{ .I3Normal }}</p>
+        <p>Мінімальний режим: {{ .I3Min }}</p>
+
+        <p><b>Струм двофазного КЗ</b></p>
+        <p>Нормальний режим: {{ .I2Normal }}</p>
+        <p>Мінімальний режим: {{ .I2Min }}</p>
+
+        <p><b>Дійсний струм трифазного КЗ</b></p>
+        <p>Нормальний режим: {{ .DI3Normal }}</p>
+        <p>Мінімальний режим: {{ .DI3Min }}</p>
+
+        <p><b>Дійсний струм двофазного КЗ</b></p>
+        <p>Нормальний режим: {{ .DI2Normal }}</p>
+        <p>Мінімальний режим: {{ .DI2Min }}</p>
+       {{ end }}
+    </div>
+    <div>
+        <a href="/">Назад</a>
+    </div>
+</body>
+</html>

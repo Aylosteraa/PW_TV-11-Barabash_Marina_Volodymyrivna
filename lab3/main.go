@@ -49,6 +49,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		cost, _ := strconv.ParseFloat(r.FormValue("cost"), 64)
 		sigma1, _ := strconv.ParseFloat(r.FormValue("sigma1"), 64)
 		sigma2, _ := strconv.ParseFloat(r.FormValue("sigma2"), 64)
+		
 		profit1, penalty1, loss1, choice1 := calculate(power, cost, sigma1)
 		profit2, penalty2, loss2, choice2 := calculate(power, cost, sigma2)
 
