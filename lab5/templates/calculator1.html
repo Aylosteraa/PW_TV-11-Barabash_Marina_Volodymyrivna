@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h1>Калькулятор показників емісії тверди частинок та валових викидів</h1>
+    <form method="post">
+        <label>PL-110 kV: <input type="text" name="PL-110 kV"></label><br>
+        <label>PL-35 kV: <input type="text" name="PL-35 kV"></label><br>
+        <label>PL-10 kV: <input type="text" name="PL-10 kV"></label><br>
+        <label>CL-10 kV (Траншея): <input type="text" name="CL-10 kV (Trench)"></label><br>
+        <label>CL-10 kV (Кабельний канал): <input type="text" name="CL-10 kV (Cable Channel)"></label><br>
+        <label>T-110 kV: <input type="text" name="T-110 kV"></label><br>
+        <label>T-35 kV: <input type="text" name="T-35 kV"></label><br>
+        <label>T-10 kV (Кабельна мережа): <input type="text" name="T-10 kV (Cable Network)"></label><br>
+        <label>T-10 kV (Повітряна мережа): <input type="text" name="T-10 kV (Overhead Network)"></label><br>
+        <label>B-110 kV (Газоізольований): <input type="text" name="B-110 kV (Gas-Insulated)"></label><br>
+        <label>B-10 kV (Масляний): <input type="text" name="B-10 kV (Oil)"></label><br>
+        <label>B-10 kV (Вакуумний): <input type="text" name="B-10 kV (Vacuum)"></label><br>
+        <label>Шинопровід 10 kV на з'єднання: <input type="text" name="Busbars 10 kV per Connection"></label><br>
+        <label>AV-0.38 kV: <input type="text" name="AV-0.38 kV"></label><br>
+        <label>ED 6,10 kV: <input type="text" name="ED 6,10 kV"></label><br>
+        <label>ED 0.38 kV: <input type="text" name="ED 0.38 kV"></label><br>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    {{if .wOc}}
+        <h2>Результати:</h2>
+        <p>Частота відмов системи: {{.wOc}} рік^(-1)</p>
+        <p>Середній час відновлення: {{.tVOc}} год</p>
+        <p>Коефіцієнт аварійного простою: {{.kAOc}}</p>
+        <p>Коефіцієнт планового простою: {{.kPOs}}</p>
+        <p>Імовірність подвійного відмови: {{.wDk}} рік^(-1)</p>
+        <p>Фінальна частота відмов із перемиканням: {{.wDc}} рік^(-1)</p>
+
+    {{end}}
+
+    <a href="/">Назад</a>
+
+</body>
+</html>
